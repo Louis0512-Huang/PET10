@@ -1,0 +1,662 @@
+<script>
+    // ==================== 展區全資料庫與「從入口怎麼走」導航點位 ====================
+    const floorPlanData = [
+      {
+        id: "food",
+        category: "supplies",
+        name: "寵物食品與餵食區",
+        subName: "Pet Food & Feeding Area",
+        boothCodes: "A01 - A19 (4排大型主島攤位)",
+        badge: "食品與餐具",
+        icon: "ph-bowl-food",
+        colorClass: "bg-orange-500",
+        walkTime: "步行約 35 秒",
+        photo: "Gemini_Generated_Image_z63bu2z63bu2z63b (3).jpg",
+        photoCaption: "走道特徵：走在中央走道迎面即是橙色【寵物食品與餵食區 A01-A19】大門楣，走廊兩側實木展架層層堆滿天然乾糧與罐頭，前台陳列各式陶瓷架高護頸碗與慢食碗。",
+        desc: "全場最大食品主題展區，齊聚天然主食糧、低溫真空凍乾、主食罐及多款符合人體工學之架高與防狼吞虎嚥餵食器具。",
+        items: [
+          "天然糧、低敏無穀罐頭與純肉低溫凍乾",
+          "人體工學陶瓷/不鏽鋼架高食碗（保護貓狗脊椎頸椎）",
+          "防狼吞虎嚥慢食碗（內部障礙設計，預防腸胃脹氣嘔吐）",
+          "自動循環活水飲水機（流水引導貓咪增加日常飲水量）"
+        ],
+        note: "本區提供多家主食即時試吃服務，容易引發毛孩興奮，牽繩請收短至 1 公尺內確保安全。",
+        navPath: "M 500 640 L 500 500 L 210 500 L 210 380 L 160 380",
+        targetPoint: { x: 160, y: 380 },
+        steps: [
+          "1. 由大會正門閘門驗票進入後，正前方直行穿過迎賓走道。",
+          "2. 抵達主橫向十字路口後，向左轉沿著主外圍動線前進。",
+          "3. 經過戶外裝備區後，即可見到橙色顯眼的【寵物食品與餵食專區】。"
+        ]
+      },
+      {
+        id: "grooming",
+        category: "supplies",
+        name: "美容與護理區",
+        subName: "Grooming & Care Zone",
+        boothCodes: "B05 - B09, C01, C08, C11",
+        badge: "美毛日常修護",
+        icon: "ph-scissors",
+        colorClass: "bg-teal-500",
+        walkTime: "步行約 50 秒",
+        photo: "Gemini_Generated_Image_h0cx5ph0cx5ph0cx.jpg",
+        photoCaption: "走道特徵：水藍色門楣標牌，兩側展示架上整齊掛滿不鏽鋼排梳、安全修甲剪、酵素潔牙牙膏與護毛洗劑，中間走道設有專業美容師現場示範剪毛與梳理。",
+        desc: "提供日常皮毛整理、換毛季深層除毛工具、安全修甲與口腔潔牙衛教，現場亦有專業美容師分享居家梳毛訣竅。",
+        items: [
+          "日常專用針梳、不鏽鋼排梳、換毛季除毛梳（預防貓毛球症）",
+          "LED 燈光防剪血管安全指甲剪",
+          "寵物專用可吞嚥酵素牙膏與專用指套牙刷（預防結石牙周病）"
+        ],
+        note: "現場有安排免費 3 分鐘居家安全修甲與口腔檢查諮詢示範。",
+        navPath: "M 500 640 L 500 370 L 350 370 L 350 270",
+        targetPoint: { x: 350, y: 270 },
+        steps: [
+          "1. 入場後直行進入大會中軸走道。",
+          "2. 在中央十字動線處向左前上方通道步行。",
+          "3. 水藍色招牌區域即為【美容與護理區】（位於食品區右上方）。"
+        ]
+      },
+      {
+        id: "outdoor",
+        category: "supplies",
+        name: "戶外與牽引裝備區",
+        subName: "Outdoor & Leash Gear",
+        boothCodes: "B04 - B23, C14 - C16",
+        badge: "外出必備",
+        icon: "ph-dog",
+        colorClass: "bg-emerald-600",
+        walkTime: "步行約 20 秒",
+        photo: "Gemini_Generated_Image_z63bu2z63bu2z63b (2).jpg",
+        photoCaption: "走道特徵：走道右方整排攤位掛滿亮色防暴衝胸背帶、減震牽繩、隨行折疊水碗與推車展示區，現場許多毛爸媽正在走道旁讓狗狗試穿胸背套件。",
+        desc: "專注於外出安全散步、防暴衝裝備、旅行箱籠與隨身清潔用品，提供多款透氣胸背帶即時試穿服務。",
+        items: [
+          "包覆分散拉力 Y 型防暴衝胸背帶與減震牽引繩",
+          "硬殼高保護航空箱與透氣寵物推車",
+          "生物可分解環保拾便袋與隨身膠囊收納盒",
+          "按壓式戶外折疊防漏隨行寵物飲水壺"
+        ],
+        note: "現場設有「試遛防暴衝體感步道」，可直接帶毛孩體驗不同牽繩的受力反饋。",
+        navPath: "M 500 640 L 500 500 L 350 500",
+        targetPoint: { x: 350, y: 500 },
+        steps: [
+          "1. 經入口驗票後直行約 15 公尺。",
+          "2. 往右手邊第一條橫向走道望去，即可看見綠色主色調的【戶外與牽引裝備區】。",
+          "3. 距離入口最近，適合第一站幫毛孩配戴專屬裝備。"
+        ]
+      },
+      {
+        id: "toys",
+        category: "supplies",
+        name: "互動與益智玩具區",
+        subName: "Play & Interactive Toys Zone",
+        boothCodes: "C10 - C18",
+        badge: "舒壓動腦",
+        icon: "ph-tennis-ball",
+        colorClass: "bg-yellow-500",
+        walkTime: "步行約 55 秒",
+        photo: "",
+        photoCaption: "走道特徵：黃色吊牌下，整面洞洞板掛滿鮮豔羽毛逗貓棒、耐咬拉扯繩、嗅聞墊與漏食益智球，攤位前聚集挑選玩具的人潮與狗狗。",
+        desc: "消耗充沛精力、減緩獨自在家焦慮的玩具專區，展出各級難度嗅聞墊、耐咬漏食球及高靈敏度逗貓棒。",
+        items: [
+          "耐咬抗憂鬱漏食球、互動拉扯繩結與多層嗅聞尋寶墊",
+          "高彈性碳纖羽毛逗貓棒、智能滾動雷射逗貓球",
+          "填充天然貓薄荷與木天蓼舒壓抱枕玩偶"
+        ],
+        note: "許多玩具備有聲響或氣味，請注意讓容易受驚嚇的小型犬貓保持適當距離。",
+        navPath: "M 500 640 L 500 280 L 500 260",
+        targetPoint: { x: 500, y: 260 },
+        steps: [
+          "1. 入場後順著中央大道筆直往會場北側（上方）走到底。",
+          "2. 於中央展示島中段即可抵達黃色標誌的【互動與益智玩具區】。"
+        ]
+      },
+      {
+        id: "furniture",
+        category: "supplies",
+        name: "睡窩與家具區",
+        subName: "Sleeping & Furniture Area",
+        boothCodes: "C12 - C15",
+        badge: "居家好眠",
+        icon: "ph-armchair",
+        colorClass: "bg-purple-500",
+        walkTime: "步行約 55 秒",
+        photo: "Gemini_Generated_Image_h0cx5ph0cx5ph0cx (1)_2.jpg",
+        photoCaption: "走道特徵：紫色【睡窩與家具區】大招牌，整面層架陳列各尺寸包覆型毛絨睡窩、蒙古包、帳篷睡墊，前台還有實木迷你寵物沙發與小睡床。",
+        desc: "展示高包覆安心睡眠窩、慢回彈護脊記憶睡墊、防抓耐磨沙發與室內防滑關節地墊。",
+        items: [
+          "深睡眠高包覆感防風毛絨睡窩 / 記憶舒壓軟墊",
+          "居家防滑拼接地墊（保護奔跑跑跳時膝關節不打滑）",
+          "可拆洗防抓耐刮寵物小沙發"
+        ],
+        note: "攤位展示之睡窩均經紫外線定時消毒，歡迎讓毛孩現場試躺體驗尺寸。",
+        navPath: "M 500 640 L 500 280 L 595 280",
+        targetPoint: { x: 595, y: 280 },
+        steps: [
+          "1. 沿中央走道直行到底後微向右轉。",
+          "2. 緊鄰主舞台左側的紫色展位即為【睡窩與家具區】。"
+        ]
+      },
+      {
+        id: "scratch",
+        category: "supplies",
+        name: "貓咪抓板與砂盆區",
+        subName: "Cat Scratching Posts & Litter Pavilion",
+        boothCodes: "C11 - C26 (兩大排原木造景攤位)",
+        badge: "貓咪天性",
+        icon: "ph-cat",
+        colorClass: "bg-rose-500",
+        walkTime: "步行約 30 秒",
+        photo: "",
+        photoCaption: "走道特徵：走道旁聳立多座高低錯落的原木貓跳台與劍麻抓柱造景，展位架上整排擺設馬卡龍色防噴外濺貓砂盆、豆腐砂與貓砂鏟。",
+        desc: "滿足貓咪垂直登高、磨爪天性與舒心如廁之專區，展出原木高聳跳台、耐磨瓦楞抓板與各類低粉塵貓砂盆。",
+        items: [
+          "原木多層豪華貓跳台、頂天立地垂直柱",
+          "高密度耐磨瓦楞紙貓抓板與沙發防抓護板",
+          "大空間防噴砂無死角貓砂盆、極細豆腐砂與礦砂",
+          "立體雙層落砂攔截地墊與寵物無毒除臭噴霧"
+        ],
+        note: "因本區以貓咪用品為主，請犬隻家長路過時保持牽繩穩定，避免大聲吠叫驚嚇現場貓咪。",
+        navPath: "M 500 640 L 500 500 L 530 500",
+        targetPoint: { x: 530, y: 500 },
+        steps: [
+          "1. 入場後直行約 15 公尺處。",
+          "2. 往右前方望去即可抵達鮭魚粉紅色的【貓咪抓板與砂盆區】。"
+        ]
+      },
+      {
+        id: "stage",
+        category: "stage",
+        name: "活動主舞台",
+        subName: "Main Stage",
+        boothCodes: "北側中央大展演廳",
+        badge: "大會舞台",
+        icon: "ph-microphone-stage",
+        colorClass: "bg-stone-800",
+        walkTime: "步行約 1 分 10 秒",
+        photo: "Gemini_Generated_Image_1m78mt1m78mt1m78_2.jpg",
+        photoCaption: "走道特徵：走到底部望見高聳大型活動主舞台，正上方設有會展超大 LED 背幕，台前設有萌寵走秀伸展台與大批整齊排列的觀眾席。",
+        desc: "大會核心活動舉辦地，定時進行「萌寵時尚選美大賽」、「獸醫師保健專題演講」與「人氣名犬名貓粉絲見面會」。",
+        items: [
+          "專業動物行為訓練師專題講座",
+          "萌寵選美伸展台頒獎儀式",
+          "現場互動有獎徵答（贈送大會限定福袋）"
+        ],
+        note: "舞台音響較大，若毛孩對聲光較敏感，建議佩戴降噪耳罩或在後排觀賽。",
+        navPath: "M 500 640 L 500 370 L 635 370 L 635 240 L 715 240",
+        targetPoint: { x: 715, y: 240 },
+        steps: [
+          "1. 入場後右轉沿著東側寬走道直行一路到底。",
+          "2. 穿過遊樂區旁走道，北側最深處的挑高展區即為【活動主舞台】。"
+        ]
+      },
+      {
+        id: "play",
+        category: "stage",
+        name: "寵物遊樂區 (互動遊樂區)",
+        subName: "Pet Play Area",
+        boothCodes: "東南角全草皮運動場",
+        badge: "放電挑戰",
+        icon: "ph-trophy",
+        colorClass: "bg-green-700",
+        walkTime: "步行約 40 秒",
+        photo: "Gemini_Generated_Image_csai0fcsai0fcsai_2.jpg",
+        photoCaption: "走道特徵：沿著主走道望向木質安全圍欄內，大片綠色運動人造草皮上擺滿敏捷跨欄、穿桿、隧道與A字坡障礙，場內狗狗正在奔馳跳躍。",
+        desc: "專為活力狗狗打造的敏捷挑戰場地，鋪設止滑防衝擊運動人工草皮，設有安全跨欄、穿桿、隧道與平衡木。",
+        items: [
+          "專業犬類敏捷障礙設施挑戰",
+          "資深寵物教練現場指導召回與過障礙訣竅",
+          "毛孩社交友善放電專區"
+        ],
+        note: "入場前請先至旁邊草皮區排泄完畢，並請遵守現場工作人員人潮流量管制。",
+        navPath: "M 500 640 L 500 500 L 640 500 L 715 500",
+        targetPoint: { x: 715, y: 500 },
+        steps: [
+          "1. 驗票進場後直接向右轉走入右側主動線。",
+          "2. 往前方直行 30 公尺，右手邊綠意盎然的圍欄區域即為【寵物遊樂區】。"
+        ]
+      },
+      {
+        id: "water",
+        category: "service",
+        name: "寵物補水站",
+        subName: "Pet Water Station",
+        boothCodes: "東側外牆專用站點",
+        badge: "飲水補給",
+        icon: "ph-drop",
+        colorClass: "bg-sky-500",
+        walkTime: "步行約 45 秒",
+        photo: "Gemini_Generated_Image_1lxiv01lxiv01lxi_2.jpg",
+        photoCaption: "走道特徵：靠右側豎立醒目的【寵物補水站】專用水滴指示背板，檯面設置多座不同高度的不鏽鋼飲水柱，家長正拿著水壺盛水給毛孩飲用。",
+        desc: "全天候提供高規格多層過濾純淨溫水與冰水，備有即棄式環保水碗供毛孩隨時補水。",
+        items: ["多道過濾活泉飲水機", "環保抑菌紙水碗", "毛孩補水計量小卡"],
+        note: "展場內人潮較多氣溫易升，建議每 45 分鐘帶毛孩來此補充水分一次。",
+        navPath: "M 500 640 L 500 500 L 640 500 L 795 500 L 795 435",
+        targetPoint: { x: 814, y: 435 },
+        steps: [
+          "1. 入場後右轉沿右側主走道直行。",
+          "2. 經過遊樂區外圍通道靠近右側牆面。",
+          "3. 藍色水滴標誌即為【寵物補水站】。"
+        ]
+      },
+      {
+        id: "vet",
+        category: "service",
+        name: "獸醫與健康諮詢",
+        subName: "Veterinary Checkup Corner",
+        boothCodes: "東側健康防護角",
+        badge: "義診諮詢",
+        icon: "ph-first-aid-kit",
+        colorClass: "bg-red-600",
+        walkTime: "步行約 50 秒",
+        photo: "Gemini_Generated_Image_njufotnjufotnjuf.jpg",
+        photoCaption: "走道特徵：走道正前方是醒目的黃白雙色門楣【獸醫與健康諮詢】，正面可見白袍執業獸醫正在診療台前觸診貓咪，排隊等候諮詢的推車秩序良好。",
+        desc: "由執業獸醫師現場進駐，提供一對一基礎健康快篩、心肺觸診、關節骨骼評估與高齡照護諮詢。",
+        items: ["免費 5 分鐘體格指數與關節觸診", "犬貓日常營養衛教諮詢", "緊急意外急救備用包"],
+        note: "諮詢採現場抽取號碼牌機制，每小時發放 15 組。",
+        navPath: "M 500 640 L 500 500 L 640 500 L 795 500 L 795 482",
+        targetPoint: { x: 814, y: 482 },
+        steps: [
+          "1. 入場後右轉沿著東側外側走道前行。",
+          "2. 位於補水站正下方、紅色十字標誌處即為【獸醫與健康諮詢站】。"
+        ]
+      },
+      {
+        id: "toilet",
+        category: "service",
+        name: "寵物便溺區",
+        subName: "Pet Restroom Area",
+        boothCodes: "東側專用消毒草皮廊道",
+        badge: "清潔如廁",
+        icon: "ph-toilet",
+        colorClass: "bg-emerald-700",
+        walkTime: "步行約 50 秒",
+        photo: "Gemini_Generated_Image_rj13bbrj13bbrj13_2.jpg",
+        photoCaption: "走道特徵：圍欄圈出整片綠意盎然的人造草皮與木質便便袋柱，黃色木牌寫著【寵物便溺區】，備有專用垃圾桶與拾便袋讓毛孩輕鬆解放。",
+        desc: "鋪設抗菌長效人工草皮，備有吸水力強的高分子尿布墊、生物除臭噴霧與拾便夾，定時由專人清潔消毒。",
+        items: ["強力鎖水除臭尿布墊", "生物酵素去味噴霧", "清潔專用水槍與拾便盒"],
+        note: "進入遊樂區前請先帶毛孩在此完成解放，維護良好公共衛生。",
+        navPath: "M 500 640 L 500 500 L 640 500 L 795 500 L 795 560",
+        targetPoint: { x: 814, y: 560 },
+        steps: [
+          "1. 入場後往右側前行經過遊樂區。",
+          "2. 緊靠最右側牆壁的長條綠色草皮區即是【寵物便溺區】。"
+        ]
+      },
+      {
+        id: "cafe",
+        category: "service",
+        name: "輕食與休息區",
+        subName: "Cafe & Rest Area",
+        boothCodes: "東南角休閒露天座",
+        badge: "家長充電",
+        icon: "ph-coffee",
+        colorClass: "bg-amber-800",
+        walkTime: "步行約 20 秒",
+        photo: "Gemini_Generated_Image_njufotnjufotnjuf (1)_2.jpg",
+        photoCaption: "走道特徵：走近看見咖啡色溫馨招牌【輕食與休息區】，圍欄內設有多組木質餐桌椅與盆栽，許多家長正坐著享用咖啡，身旁趴著可愛的毛孩。",
+        desc: "提供毛孩家長美式咖啡、特調茶飲與寵物專屬羊奶無糖小泡芙，桌椅寬敞適合推車停放休息。",
+        items: ["精品手沖咖啡與輕食點心", "寵物專用常溫鮮乳與無添加小點心", "配備推車專用泊車空間"],
+        note: "座位區桌腳皆附有牽繩扣環，可讓毛孩安穩待在身旁。",
+        navPath: "M 500 640 L 580 640 L 680 690",
+        targetPoint: { x: 680, y: 690 },
+        steps: [
+          "1. 剛進驗票閘口後，直接往右側前方望去。",
+          "2. 設有圓桌洋傘的座位區即為【輕食與休息區】。"
+        ]
+      }
+    ];
+
+    // ==================== 頁面互動狀態管理 ====================
+    let currentSelectedId = null;
+    let isTourActive = false;
+    let isFocusMode = false;
+    let currentFilter = "all";
+    let scale = 1;
+
+    // DOM 元素引用
+    const sidebar = document.getElementById("sidebar");
+    const infoPanel = document.getElementById("info-panel");
+    const toggleSidebarBtn = document.getElementById("toggle-sidebar-btn");
+    const focusModeBtn = document.getElementById("focus-mode-btn");
+    const focusModeText = document.getElementById("focus-mode-text");
+    const focusModeIcon = document.getElementById("focus-mode-icon");
+    const closePanelBtn = document.getElementById("close-panel-btn");
+
+    // 手機版 Peek Bar 引用
+    const mobilePeekBar = document.getElementById("mobile-peek-bar");
+    const mobilePeekTitle = document.getElementById("mobile-peek-title");
+    const mobilePeekTime = document.getElementById("mobile-peek-time");
+    const mobilePeekBadge = document.getElementById("mobile-peek-badge");
+    const mobileExpandBtn = document.getElementById("mobile-expand-btn");
+    const bottomSheetHandle = document.getElementById("bottom-sheet-handle");
+
+    // 面板內元件引用
+    const drawerTitle = document.getElementById("drawer-title");
+    const drawerSubtitle = document.getElementById("drawer-subtitle");
+    const drawerTag = document.getElementById("drawer-tag");
+    const drawerBadgeIcon = document.getElementById("drawer-badge-icon");
+    const drawerWalkTime = document.getElementById("drawer-walk-time");
+    const drawerSteps = document.getElementById("drawer-steps");
+    const drawerDesc = document.getElementById("drawer-desc");
+    const drawerItems = document.getElementById("drawer-items");
+    const drawerNote = document.getElementById("drawer-note");
+    const drawerBoothCodes = document.getElementById("drawer-booth-codes");
+    const focusZoneBtn = document.getElementById("focus-zone-btn");
+
+    // 攤位留空容器與照片元素
+    const drawerPhotoContainer = document.getElementById("drawer-photo-container");
+    const photoPlaceholderBox = document.getElementById("photo-placeholder-box");
+    const drawerPhoto = document.getElementById("drawer-photo");
+    const drawerPhotoCaption = document.getElementById("drawer-photo-caption");
+    const photoFileInput = document.getElementById("photo-file-input");
+
+    // 地圖與動線控制器
+    const mapPanZoom = document.getElementById("map-pan-zoom");
+    const activeNavPath = document.getElementById("active-nav-path");
+    const endPin = document.getElementById("end-pin");
+    const tourGuideLayer = document.getElementById("tour-guide-layer");
+    const toggleTourBtn = document.getElementById("toggle-tour-btn");
+    const tourDot = document.getElementById("tour-dot");
+    const clearRouteBtn = document.getElementById("clear-route-btn");
+
+    // 縮放按鈕
+    const zoomInBtn = document.getElementById("zoom-in");
+    const zoomOutBtn = document.getElementById("zoom-out");
+    const zoomResetBtn = document.getElementById("zoom-reset");
+
+    // 側邊欄清單容器與篩選按鈕
+    const zoneCardList = document.getElementById("zone-card-list");
+    const zoneQuickFilter = document.getElementById("zone-quick-filter");
+
+    // 更新右側面板詳細內容
+    function updateDrawerContent(data) {
+      drawerTitle.innerText = data.name;
+      drawerSubtitle.innerText = data.subName;
+      drawerTag.innerText = data.badge;
+      drawerBadgeIcon.className = `w-10 h-10 rounded-2xl flex items-center justify-center text-xl text-white font-bold shadow-xs ${data.colorClass}`;
+      drawerBadgeIcon.innerHTML = `<i class="ph-bold ${data.icon}"></i>`;
+      drawerWalkTime.innerText = data.walkTime;
+
+      // 檢查是否有照片，無則顯示留空上傳框
+      if (data.photo && data.photo.trim() !== "") {
+        drawerPhoto.src = data.photo;
+        drawerPhoto.classList.remove("hidden");
+        photoPlaceholderBox.classList.add("hidden");
+      } else {
+        drawerPhoto.src = "";
+        drawerPhoto.classList.add("hidden");
+        photoPlaceholderBox.classList.remove("hidden");
+      }
+
+      if (drawerPhotoCaption) {
+        drawerPhotoCaption.innerText = data.photoCaption;
+      }
+
+      // 逐步步行引導步驟
+      drawerSteps.innerHTML = "";
+      data.steps.forEach(step => {
+        const li = document.createElement("li");
+        li.className = "flex items-start gap-1.5";
+        li.innerHTML = `<i class="ph-fill ph-check-circle text-red-500 shrink-0 mt-0.5"></i> <span>${step}</span>`;
+        drawerSteps.appendChild(li);
+      });
+
+      // 介紹簡述
+      drawerDesc.innerText = data.desc;
+
+      // 展出品項清單
+      drawerItems.innerHTML = "";
+      data.items.forEach(item => {
+        const li = document.createElement("li");
+        li.className = "flex items-center gap-1.5";
+        li.innerHTML = `<i class="ph-bold ph-check text-amber-500 text-xs"></i> <span>${item}</span>`;
+        drawerItems.appendChild(li);
+      });
+
+      // 毛孩叮嚀與攤位代碼
+      drawerNote.innerText = data.note;
+      drawerBoothCodes.innerText = data.boothCodes;
+    }
+
+    // 渲染側邊欄卡片清單
+    function renderSidebarList() {
+      zoneCardList.innerHTML = "";
+      const filtered = floorPlanData.filter(zone => {
+        if (currentFilter === "all") return true;
+        return zone.category === currentFilter;
+      });
+
+      filtered.forEach(zone => {
+        const isSelected = zone.id === currentSelectedId;
+        const card = document.createElement("div");
+        card.className = `p-2.5 rounded-2xl border transition-all cursor-pointer relative ${
+          isSelected 
+            ? "bg-amber-50/90 border-amber-500 shadow-sm ring-2 ring-amber-500/20" 
+            : "bg-white hover:bg-stone-50 border-stone-200"
+        }`;
+        card.dataset.id = zone.id;
+
+        const thumbHtml = (zone.photo && zone.photo.trim() !== "")
+          ? `<img src="${zone.photo}" alt="${zone.name}" class="w-full h-full object-cover">`
+          : `<div class="w-full h-full flex flex-col items-center justify-center text-stone-400 bg-stone-100"><i class="ph-bold ${zone.icon} text-lg text-stone-500"></i><span class="text-[8px] text-stone-400">留空</span></div>`;
+
+        card.innerHTML = `
+          <div class="flex items-center gap-2.5">
+            <div class="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-stone-200 bg-stone-100">
+              ${thumbHtml}
+              <div class="absolute bottom-0 right-0 w-4 h-4 rounded-tl-md flex items-center justify-center text-white ${zone.colorClass}">
+                <i class="ph-bold ${zone.icon} text-[9px]"></i>
+              </div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between mb-0.5">
+                <span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-stone-100 text-stone-600">${zone.badge}</span>
+                <span class="text-[10px] text-red-600 font-bold flex items-center gap-0.5">
+                  <i class="ph-bold ph-navigation-arrow"></i> ${zone.walkTime}
+                </span>
+              </div>
+              <h3 class="text-xs font-bold text-stone-900 truncate">${zone.name}</h3>
+              <p class="text-[10px] text-stone-500 truncate">${zone.boothCodes}</p>
+            </div>
+          </div>
+        `;
+
+        card.addEventListener("click", () => {
+          selectZone(zone.id, true);
+        });
+
+        zoneCardList.appendChild(card);
+      });
+    }
+
+    // 選擇特定展區
+    function selectZone(zoneId, shouldFocus = true) {
+      currentSelectedId = zoneId;
+      const zoneData = floorPlanData.find(z => z.id === zoneId);
+      if (!zoneData) return;
+
+      renderSidebarList();
+      const activeCard = zoneCardList.querySelector(`[data-id="${zoneId}"]`);
+      if (activeCard) {
+        activeCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      document.querySelectorAll(".interactive-booth").forEach(el => {
+        el.classList.remove("active-zone-glow");
+      });
+      const svgTarget = document.getElementById(`zone-${zoneId}`);
+      if (svgTarget) {
+        svgTarget.classList.add("active-zone-glow");
+      }
+
+      activeNavPath.setAttribute("d", zoneData.navPath);
+      endPin.setAttribute("cx", zoneData.targetPoint.x);
+      endPin.setAttribute("cy", zoneData.targetPoint.y);
+      endPin.classList.remove("hidden");
+
+      updateDrawerContent(zoneData);
+
+      if (window.innerWidth < 768) {
+        mobilePeekTitle.innerText = zoneData.name;
+        mobilePeekTime.innerHTML = `<i class="ph-bold ph-navigation-arrow"></i> ${zoneData.walkTime}`;
+        mobilePeekBadge.className = `w-8 h-8 rounded-xl text-white flex items-center justify-center shrink-0 ${zoneData.colorClass}`;
+        mobilePeekBadge.innerHTML = `<i class="ph-bold ${zoneData.icon}"></i>`;
+        mobilePeekBar.classList.remove("translate-y-28");
+        infoPanel.classList.add("translate-y-full");
+      } else {
+        infoPanel.classList.remove("md:hidden");
+      }
+
+      if (shouldFocus) {
+        focusOnCoords(zoneData.targetPoint.x, zoneData.targetPoint.y);
+      }
+    }
+
+    function closeInfoPanel() {
+      if (window.innerWidth < 768) {
+        infoPanel.classList.add("translate-y-full");
+      } else {
+        infoPanel.classList.add("md:hidden");
+      }
+    }
+
+    function focusOnCoords(x, y) {
+      scale = 1.25;
+      const dx = (550 - x) * 0.45;
+      const dy = (390 - y) * 0.45;
+      mapPanZoom.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
+    }
+
+    function resetView() {
+      scale = 1;
+      mapPanZoom.style.transform = `translate(0px, 0px) scale(1)`;
+    }
+
+    function clearNavigation() {
+      currentSelectedId = null;
+      activeNavPath.setAttribute("d", "");
+      endPin.classList.add("hidden");
+      document.querySelectorAll(".interactive-booth").forEach(el => {
+        el.classList.remove("active-zone-glow");
+      });
+      renderSidebarList();
+      closeInfoPanel();
+      mobilePeekBar.classList.add("translate-y-28");
+      resetView();
+    }
+
+    function toggleFocusMode() {
+      isFocusMode = !isFocusMode;
+      if (isFocusMode) {
+        sidebar.classList.add("hidden");
+        infoPanel.classList.add("hidden");
+        mobilePeekBar.classList.add("translate-y-28");
+        focusModeText.innerText = "退出全景";
+        focusModeIcon.className = "ph-bold ph-arrows-in text-amber-600";
+        focusModeBtn.classList.add("bg-amber-50", "border-amber-300");
+      } else {
+        sidebar.classList.remove("hidden");
+        if (currentSelectedId) {
+          infoPanel.classList.remove("hidden");
+        }
+        focusModeText.innerText = "全地圖模式";
+        focusModeIcon.className = "ph-bold ph-eye text-stone-700";
+        focusModeBtn.classList.remove("bg-amber-50", "border-amber-300");
+      }
+    }
+
+    function initListeners() {
+      document.querySelectorAll(".interactive-booth").forEach(booth => {
+        booth.addEventListener("click", () => {
+          const zoneId = booth.dataset.id;
+          if (zoneId) {
+            selectZone(zoneId, true);
+          }
+        });
+      });
+
+      drawerPhotoContainer.addEventListener("click", () => {
+        photoFileInput.click();
+      });
+
+      photoFileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file && currentSelectedId) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            const dataUrl = event.target.result;
+            const currentZone = floorPlanData.find(z => z.id === currentSelectedId);
+            if (currentZone) {
+              currentZone.photo = dataUrl;
+              updateDrawerContent(currentZone);
+              renderSidebarList();
+            }
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      closePanelBtn.addEventListener("click", closeInfoPanel);
+
+      mobileExpandBtn.addEventListener("click", () => {
+        infoPanel.classList.remove("translate-y-full");
+      });
+      bottomSheetHandle.addEventListener("click", () => {
+        infoPanel.classList.add("translate-y-full");
+      });
+
+      focusModeBtn.addEventListener("click", toggleFocusMode);
+      toggleSidebarBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("hidden");
+      });
+
+      focusZoneBtn.addEventListener("click", () => {
+        if (currentSelectedId) {
+          const z = floorPlanData.find(item => item.id === currentSelectedId);
+          if (z) focusOnCoords(z.targetPoint.x, z.targetPoint.y);
+        }
+      });
+
+      zoneQuickFilter.addEventListener("click", (e) => {
+        const btn = e.target.closest(".quick-filter-btn");
+        if (!btn) return;
+        document.querySelectorAll(".quick-filter-btn").forEach(b => {
+          b.classList.remove("bg-stone-800", "text-white");
+          b.classList.add("bg-stone-100", "text-stone-700");
+        });
+        btn.classList.add("bg-stone-800", "text-white");
+        btn.classList.remove("bg-stone-100", "text-stone-700");
+
+        currentFilter = btn.dataset.cat;
+        renderSidebarList();
+      });
+
+      toggleTourBtn.addEventListener("click", () => {
+        isTourActive = !isTourActive;
+        tourGuideLayer.classList.toggle("opacity-0", !isTourActive);
+        tourDot.className = `w-2 h-2 rounded-full ${isTourActive ? "bg-amber-500 animate-pulse" : "bg-stone-300"}`;
+      });
+
+      clearRouteBtn.addEventListener("click", clearNavigation);
+
+      zoomInBtn.addEventListener("click", () => {
+        scale = Math.min(scale + 0.2, 2.2);
+        mapPanZoom.style.transform = `scale(${scale})`;
+      });
+
+      zoomOutBtn.addEventListener("click", () => {
+        scale = Math.max(scale - 0.2, 0.75);
+        mapPanZoom.style.transform = `scale(${scale})`;
+      });
+
+      zoomResetBtn.addEventListener("click", resetView);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderSidebarList();
+      initListeners();
+      setTimeout(() => {
+        selectZone("food", false);
+      }, 350);
+    });
+  </script>
